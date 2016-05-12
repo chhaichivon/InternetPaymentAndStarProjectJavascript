@@ -1,0 +1,264 @@
+<html>
+<head>
+	<title>Star</title>
+
+	<style type="text/css">
+	.top{
+		width: 100%;
+		height: 5em;
+		margin-top: 3em;
+		position: relative;
+		float: left;
+	}
+	.in{
+		width: 100%;
+		height: 2em;
+		position: relative;
+		float: left;
+	}
+	.bu{
+		width: 100%;
+		height: 3em;
+		position: relative;
+		float: left;
+	}
+
+	</style>
+
+</head>
+<body>
+	<div class="container">
+		<div class="top">
+			<h2>Star</h2>
+		</div>
+		<div class="in">
+			Inputer Number Genarate The Star   <input type="text" id="myText" size="20">
+		</div>
+		<div class="bu">
+			<span><button type="button" onClick="Star1()">Star1</button>
+				  <button type="button" onClick="Star2()">Star2</button>
+				  <button type="button" onClick="Star3()">Star3</button>
+				  <button type="button" onClick="Star4()">Star4</button>
+				  <button type="button" onClick="Star5()">Star5</button>
+				  <button type="button" onClick="Star6()">Star6</button>
+				  <button type="button" onClick="Star7()">Star7</button>
+				  <button type="button" onClick="Star8()">Star8</button>
+			</span>
+		</div>
+		<script type="text/javascript">
+		var num = document.getElementById("myText").value;
+		var theNum =  Number(num);
+
+			//start function star1//
+			function Star1()
+			{
+				var star1=" ";
+				var num = document.getElementById("myText").value;
+				var theNum =  Number(num);
+				for (var i = 0; i <theNum; i++) 
+				{
+					//document.write("");
+					for (var j = 0; j <= i; j++)
+					{
+						star1= star1+"*";
+					}
+					star1 = star1+" "+"<br/>";
+				}
+			return document.getElementById("demo").innerHTML =  star1;
+			}
+			//end function star 1//
+
+			//Start function star 2//
+			function Star2() 
+			{
+				var star2 ="";
+				var num = document.getElementById("myText").value;
+				var theNum =  Number(num);
+				for(var i=theNum;i>=1;i--)
+				 {
+					    for(var j=i;j>=1;j--)
+					    {
+					    	star2 = star2 + "*";
+					    }
+				star2 = star2 + " "+ "<br/>";
+				}
+				return document.getElementById("demo").innerHTML =  star2;
+			}
+			//End Star function star 2//
+
+			//Start function star 3//
+			function Star3() 
+			{
+				var star3 ="";
+				var num = document.getElementById("myText").value;
+				var theNum =  Number(num);
+				for(var i=0;i<theNum;i++)
+			    {
+			        for(var j=0;j<theNum-i-1;j++) // j<2
+			        {
+			            star3 = star3 + "..";
+			        }
+			        for(var k=theNum-i;k<=theNum;k++) //k=3
+			        {
+			           star3 = star3 + "*";
+			        }
+			        for(var	k=theNum-i;k<theNum;k++) //k==3
+			        {
+			            star3 =star3 + "*";
+			        }
+			        for(var j=0;j<theNum-i;j++) //
+			        {
+			           star3 = star3 + "&nbsp;";
+			        }
+
+				   star3 = star3 + "<br/>";
+				    
+				}
+				return document.getElementById("demo").innerHTML =  star3;
+			}
+
+			//Start function star 3//
+
+			//Start function star 4//
+			function Star4() 
+			{
+				var star4="";
+				var num = document.getElementById("myText").value;
+				var theNum =  Number(num);
+				for(var i=theNum;i>0;i--)
+					{
+					    for(var j=theNum-i;j>0;j--)
+					    {
+					    	star4 = star4 + "..";
+					    }
+					       for(var j=2*i-1;j>0;j--)
+					       {
+					       	 star4 = star4 + "*";
+					       }
+					       
+					  star4 = star4 + "<br/>";
+					}
+				return document.getElementById("demo").innerHTML =  star4;
+			}
+
+			//Start function star 4//
+			//Start function star 5//
+
+			function Star5() 
+			{
+				var star5="";
+				var num = document.getElementById("myText").value;
+				var theNum =  Number(num);
+
+				for (var i = 1; i <= theNum/2; i++)
+				{
+				   for (var j = i; j < theNum/2; j++)
+				   {
+				    star5 =  star5 + "..";
+				   }
+				   for (var k = 1; k < (i * 2); k++)
+				   {
+				    star5 = star5 + "*";
+				   }
+				  star5 = star5 + "<br/>";
+				}
+				for (var i =(theNum/2) - 1; i >= 1; i--)
+				{
+					   for (var j = theNum/2; j > i; j--)
+					    {
+					    star5 = star5 +"..";
+					   	}
+					   for (var k = 1; k < (i * 2); k++)
+					   {
+					   star5  = star5 + "*";
+					   }
+					   star5  = star5 + "<br/>";
+				}
+				return document.getElementById("demo").innerHTML =  star5;
+			}
+
+			//Start function star 5//
+
+			//Start function star 6//
+			function Star6() 
+			{
+				var star6="";
+				var num = document.getElementById("myText").value;
+				var theNum =  Number(num);
+
+				for(i=1;i<=theNum/2;i++)
+				{
+						for(n=i;n<theNum/2;n++)
+						{
+							star6 = star6 +"";
+						}
+						for(m=3;m<(i*3);m++)
+						{
+							star6 = star6 +".";
+						}
+						star6 = star6 + "*";
+						star6 = star6 + "<br>";
+				}
+				for(i=(theNum/2)-1;i>=1;i--)
+				{
+						for(j=11;j>i;j--)
+						{
+							star6 = star6 + "";
+						}
+						for(k=3;k<(i*3);k++)
+						{
+							star6 = star6 + ".";
+						}
+					star6 = star6 + "*";
+					star6 = star6 + "<br>";
+				}
+				return document.getElementById("demo").innerHTML =  star6;
+			}
+			//Start function star 6//
+
+			//Start function star 6//
+			function Star7() 
+			{
+				var star7="";
+				var num = document.getElementById("myText").value;
+				var theNum =  Number(num);
+				for(i=theNum/2;i>=1;i--)
+				{
+					for(j=theNum/2;j>i;j--)
+					{
+						star7 = star7 + "";
+					}
+					for(k=3;k<(i*3);k++)
+					{
+						star7 = star7 + ".";
+					}
+					star7 = star7 + "*";
+					star7  = star7 +"<br>";
+				}
+
+				for(i=1;i<=(theNum/2)-1;i++)
+				{
+					for(j=i;j<theNum;j++)
+					{
+						star7 = star7 + "";
+					}
+					for(k=0;k<(i*3);k++)
+					{
+						star7 = star7 + ".";
+					}
+					star7 = star7 + "*";
+					star7 = star7 +"<br>";
+				}
+				return document.getElementById("demo").innerHTML =  star7;
+			}
+			//Start function star 7//
+			function Star8()
+			{
+					 alert("<h3>Sorry we are developing!!</h3>");
+			}
+	</script>
+	<div>
+		<p id="demo"></p>
+	</div>
+</body>
+</html>

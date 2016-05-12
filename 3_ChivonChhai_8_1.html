@@ -1,0 +1,254 @@
+<html>
+<head>
+	<title>Internat payment</title>
+
+	<style type="text/css">
+	.container{
+		width: 50em;
+		height: 40em;
+		margin: auto;
+		position: relative;
+		
+		text-indent: 1px;
+	}
+	h2{
+		text-decoration: none;
+		text-align: center;
+		text-transform: uppercase;
+		color: white;
+		font-size: 20px;
+	}
+	.top{
+		float: left;
+		margin-top: 0px;
+		position: relative;
+		width: 50em;
+		height: 5em;
+		background-color: red;
+	}
+	.control{
+		float: left;
+		margin-top: 0px;
+		position: relative;
+		width: 50em;
+		height: 10em;
+		/*background-color: black;*/
+	}
+	.footer{
+		float: left;
+		margin-top: 0px;
+		position: relative;
+		width: 50em;
+		height: 5em;
+		background-color: #232321;
+	}
+	.start{
+		float: left;
+		margin-top: 0px;
+		position: relative;
+		width: 25em;
+		height: 5em;
+		background-color: #abc123;
+	}
+	.stop{
+		float: left;
+		margin-top: 0px;
+		position: relative;
+		width: 25em;
+		height: 5em;
+		background-color: #00FF00;
+	}
+	.time{
+		float: left;
+		margin-top: 0px;
+		position: relative;
+		width: 25em;
+		height: 5em;
+		background-color: yellow;
+	}
+	.money{
+		float: left;
+		margin-top: 0px;
+		position: relative;
+		width: 25em;
+		height: 5em;
+		background-color: #984370;
+	}
+	p{
+		text-align: center;
+		margin: auto;
+		margin-top: 2em;
+		font-weight: bold;
+		font-size: 18px;
+
+	}
+	#myButton{
+		width: 10em;  
+		height: 3em;
+		text-align: center;
+	}
+	input{
+		text-align: center;
+		margin: auto;
+	}
+	.control-button{
+		margin-top: 1em;
+		text-align: center;
+	}
+	</style>
+	<script type="text/javascript">
+
+/*======================================Control Timer Start=======================================================*/
+		function controlTimeStart()
+		{
+			d = new Date();
+			h_start = d.getHours();
+    		m_start = d.getMinutes();
+    		s_start = d.getSeconds();
+		   	str = h_start + "h : " + m_start + "m : "+ s_start + "s";
+    		document.getElementById("TimeStart").innerHTML =  "Start at :" + str;
+		}
+/*======================================Control Time Start=======================================================*/
+		function controlTimeStop()
+		{
+			d = new Date();
+			h_end = d.getHours();
+    		m_end = d.getMinutes();
+			s_end = d.getSeconds();
+		   	str = h_end + "h : " + m_end + "mm : "+ s_end + "ss";
+			document.getElementById("TimeStop").innerHTML = "Stop at :" + str;
+
+			/*=========control total count==========*/
+
+			TotalStart =(h_start*60) + m_start;
+			TotalStop = (h_end*60) + m_end;
+
+			TotalAll = TotalStop - TotalStart;
+
+			document.getElementById("totalTime").innerHTML = TotalAll +" Minute";
+
+			/*=========end control total count==========*/
+			/*=========Do Checking Money================*/
+
+
+			if(TotalAll <= 15)
+			{
+				//MoneyCount = TotalAll *  500;
+				document.getElementById("money").innerHTML ="500R";
+			}
+			else if(TotalAll <=30)
+			{
+				//MoneyCount = TotalAll * 700;
+				document.getElementById("money").innerHTML ="700R";
+			}
+			else if(TotalAll <60 )
+			{
+				//MoneyCount = TotalAll *  1500;
+				document.getElementById("money").innerHTML = "1500R";
+			}
+			else
+			{
+
+				/*addHours  =Math.floor(TotalAll / 60);*/
+				addHours = Number.parseInt(TotalAll/60); //3h
+				addMinute  = TotalAll % 60; //0
+				if (addMinute ==0 ) 
+				{
+					addMoney=0;
+				}
+				else if (addMinute >=1 || addMinute <= 15)
+				{
+					addMoney =500;
+				}
+				else if(addMinute >= 30 )
+				{
+					addMoney =700;
+				}
+				else if(addMinute <= 60)
+				{
+					addMoney =1500;
+				}
+
+				TotalCount = (addHours*1500) + addMoney;
+				document.getElementById("money1").innerHTML =  TotalCount + "Rail";
+			}
+
+
+
+			/*=========End Checking Money==========*/
+
+		}
+
+/*======================================Clear Timer =======================================================*/
+		function  clearTimer()
+		{
+			h = 0;
+			m = 0;
+			s = 0;
+			str = h + "h : " + m + "m : "+ s + "s";
+			clearTimne ="0";
+			clearMoney="0";
+			document.getElementById("TimeStart").innerHTML =  "Start at :" + str;
+			document.getElementById("TimeStop").innerHTML =  "Start at :" + str;
+			document.getElementById("totalTime").innerHTML =  clearTimne +" Minute"  ;
+			document.getElementById("money1").innerHTML =  clearMoney + " Rail" ;
+
+
+		}
+/*======================================Control Text Button Change=======================================================*/
+		 function changeText()
+		 {
+			 var elem = document.getElementById("myButton");
+			 	if (elem.value=="Start")
+                {
+						controlTimeStart();
+                      	elem.value = "Stop";
+                        
+                }
+                else if (elem.value =="Stop")
+				{
+					elem.value = "Clear";
+					controlTimeStop();
+
+				}
+                else if(elem.value=="Clear")
+                {
+					clearTimer();
+					elem.value ="Start";
+                }
+				 else
+				{
+					//setTimer();
+				}
+        }
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="top">
+			<h2>Internat Payment</h2>
+		</div>
+		<div class="control">
+			<div class="start">
+				<p id="TimeStart">Start at : 00:00 </p>
+
+			</div>
+			<div class="stop">
+				<p id="TimeStop">Stop at : 00:00 </p>
+			</div>
+			<div class="time">
+				<p id="totalTime">0 Minute</p>
+			</div>
+			<div class="money">
+				<p id="money1">0 Rail</p>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="control-button">
+				<input type="submit" id="myButton" value="Start" onClick="changeText()"/>
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>
